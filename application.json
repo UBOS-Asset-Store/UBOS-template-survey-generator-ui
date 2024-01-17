@@ -1,0 +1,52 @@
+{
+    "_id": "65a7a2d3699c8c49eb616a31",
+    "name": "miniappui",
+    "slug": "miniappui",
+    "organizationId": "Org",
+    "isPublic": true,
+    "isMenu": false,
+    "isShowPlatformTag": true,
+    "createdAt": "2024-01-17T09:50:11.184Z",
+    "updatedAt": "2024-01-17T09:50:11.184Z",
+    "deleted": false,
+    "pages": [
+        {
+            "_id": "survey generator",
+            "isDefault": true
+        }
+    ],
+    "policies": [
+        {
+            "permission": "makePublic:applications",
+            "groups": [],
+            "users": []
+        },
+        {
+            "permission": "read:applications",
+            "groups": [],
+            "users": []
+        },
+        {
+            "permission": "publish:applications",
+            "groups": [],
+            "users": []
+        },
+        {
+            "permission": "manage:applications",
+            "groups": [],
+            "users": []
+        }
+    ],
+    "global_setting": {
+        "css": "${env.get(\"NODEREDURL\")}/css",
+        "title": "Survey Generator"
+    },
+    "gitApplicationMetadata": {
+        "browserSupportedRemoteUrl": "https://github.com/UBOS-Asset-Store/UBOS-template-survey-generator-ui",
+        "defaultApplicationId": "miniappui",
+        "defaultBranchName": "main",
+        "isRepoPrivate": true,
+        "remoteUrl": "git@github.com:UBOS-Asset-Store/UBOS-template-survey-generator-ui.git",
+        "repoName": "UBOS-template-survey-generator-ui"
+    }
+}
