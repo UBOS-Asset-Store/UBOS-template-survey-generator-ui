@@ -104,7 +104,8 @@
                                                                 "bottomRow": 10,
                                                                 "parentId": "exnd1k6b55",
                                                                 "dynamicBindingPathList": [],
-                                                                "dynamicTriggerPathList": []
+                                                                "dynamicTriggerPathList": [],
+                                                                "classStyle": "title"
                                                             },
                                                             {
                                                                 "isVisible": true,
@@ -146,12 +147,12 @@
                                                         "leftColumn": 0,
                                                         "rightColumn": 369.75,
                                                         "topRow": 0,
-                                                        "bottomRow": 420,
+                                                        "bottomRow": 590,
                                                         "parentId": "7e3zvpoc4s"
                                                     }
                                                 ],
                                                 "version": 1,
-                                                "classStyle": "",
+                                                "classStyle": "content_container",
                                                 "type": "CONTAINER_WIDGET",
                                                 "hideCard": false,
                                                 "displayName": "Container",
@@ -167,13 +168,15 @@
                                                 "rightColumn": 24,
                                                 "topRow": 0,
                                                 "bottomRow": 79,
-                                                "parentId": "qzpmrjky13"
+                                                "parentId": "qzpmrjky13",
+                                                "dynamicBindingPathList": [],
+                                                "dynamicTriggerPathList": []
                                             },
                                             {
                                                 "isVisible": true,
                                                 "animateLoading": true,
                                                 "widgetName": "Form1",
-                                                "backgroundColor": "white",
+                                                "backgroundColor": "#FFFFFF",
                                                 "children": [
                                                     {
                                                         "isVisible": true,
@@ -213,11 +216,18 @@
                                                                 "bottomRow": 49,
                                                                 "parentId": "zwefqfp59j",
                                                                 "dynamicBindingPathList": [],
-                                                                "dynamicTriggerPathList": [],
+                                                                "dynamicTriggerPathList": [
+                                                                    {
+                                                                        "key": "onClick"
+                                                                    }
+                                                                ],
                                                                 "borderRadius": "ROUNDED",
                                                                 "iconName": "play",
                                                                 "iconAlign": "left",
-                                                                "placement": "CENTER"
+                                                                "placement": "CENTER",
+                                                                "classStyle": "generate_btn",
+                                                                "onClick": "{{generate.run(() => getCredentials.run(), () => {})}}",
+                                                                "dynamicPropertyPathList": []
                                                             },
                                                             {
                                                                 "isVisible": true,
@@ -281,11 +291,11 @@
                                                                                 "labelWidth": 5,
                                                                                 "widgetName": "key_input",
                                                                                 "version": 2,
-                                                                                "defaultText": "",
+                                                                                "defaultText": "{{getCredentials.data.openAIKey ? getCredentials.data.openAIKey : '' }}",
                                                                                 "iconAlign": "left",
                                                                                 "autoFocus": false,
                                                                                 "labelStyle": "",
-                                                                                "resetOnSubmit": true,
+                                                                                "resetOnSubmit": false,
                                                                                 "isRequired": true,
                                                                                 "isDisabled": false,
                                                                                 "animateLoading": true,
@@ -307,11 +317,21 @@
                                                                                 "topRow": 0,
                                                                                 "bottomRow": 4,
                                                                                 "parentId": "vi64r4djqc",
-                                                                                "dynamicBindingPathList": [],
-                                                                                "dynamicTriggerPathList": [],
+                                                                                "dynamicBindingPathList": [
+                                                                                    {
+                                                                                        "key": "defaultText"
+                                                                                    }
+                                                                                ],
+                                                                                "dynamicTriggerPathList": [
+                                                                                    {
+                                                                                        "key": "onSubmit"
+                                                                                    }
+                                                                                ],
                                                                                 "placeholderText": "sk-XXXXXXXX63Az1EeBM3rlT3BlbkFJQ4IOqyXXdhTgjqN2YbXX",
                                                                                 "tooltip": "Provide your API key",
-                                                                                "labelTextColor": "#495894"
+                                                                                "labelTextColor": "#495894",
+                                                                                "onSubmit": "{{saveCredentials.run()}}",
+                                                                                "dynamicPropertyPathList": []
                                                                             },
                                                                             {
                                                                                 "isVisible": true,
@@ -323,7 +343,7 @@
                                                                                 "options": "[\n  {\n    \"label\": \"gpt-3.5-turbo\",\n    \"value\": \"gpt-3.5-turbo\"\n  },\n\t  {\n    \"label\": \"gpt-3.5-turbo-16k\",\n    \"value\": \"gpt-3.5-turbo-16k\"\n  },\n  {\n    \"label\": \"gpt-4\",\n    \"value\": \"gpt-4\"\n  },\n\t {\n    \"label\": \"gpt-4-32k\",\n    \"value\": \"gpt-4-32k\"\n  },\n\t{\n\t\"label\":\"gpt-4-1106-preview\",\n\t   \"value\": \"gpt-4-1106-preview\"\n\t}\n]",
                                                                                 "serverSideFiltering": false,
                                                                                 "widgetName": "model_select",
-                                                                                "defaultOptionValue": "gpt-3.5-turbo",
+                                                                                "defaultOptionValue": "{{getCredentials.data.model ? getCredentials.data.model : \"gpt-3.5-turbo\"}}",
                                                                                 "version": 1,
                                                                                 "isFilterable": true,
                                                                                 "isRequired": true,
@@ -344,9 +364,18 @@
                                                                                 "topRow": 8,
                                                                                 "bottomRow": 12,
                                                                                 "parentId": "vi64r4djqc",
-                                                                                "dynamicBindingPathList": [],
-                                                                                "dynamicTriggerPathList": [],
-                                                                                "labelTextColor": "#495894"
+                                                                                "dynamicBindingPathList": [
+                                                                                    {
+                                                                                        "key": "defaultOptionValue"
+                                                                                    }
+                                                                                ],
+                                                                                "dynamicTriggerPathList": [
+                                                                                    {
+                                                                                        "key": "onOptionChange"
+                                                                                    }
+                                                                                ],
+                                                                                "labelTextColor": "#495894",
+                                                                                "onOptionChange": "{{saveCredentials.run()}}"
                                                                             },
                                                                             {
                                                                                 "isVisible": true,
@@ -356,11 +385,11 @@
                                                                                 "labelWidth": 5,
                                                                                 "widgetName": "context_input",
                                                                                 "version": 2,
-                                                                                "defaultText": "To survey customer experience leaders on what use cases they would like to enhance with AI.",
+                                                                                "defaultText": "{{getCredentials.data.context ? getCredentials.data.context  : 'To survey customer experience leaders on what use cases they would like to enhance with AI.'}}",
                                                                                 "iconAlign": "left",
                                                                                 "autoFocus": false,
                                                                                 "labelStyle": "",
-                                                                                "resetOnSubmit": true,
+                                                                                "resetOnSubmit": false,
                                                                                 "isRequired": true,
                                                                                 "isDisabled": false,
                                                                                 "animateLoading": true,
@@ -382,11 +411,20 @@
                                                                                 "topRow": 16,
                                                                                 "bottomRow": 22,
                                                                                 "parentId": "vi64r4djqc",
-                                                                                "dynamicBindingPathList": [],
-                                                                                "dynamicTriggerPathList": [],
+                                                                                "dynamicBindingPathList": [
+                                                                                    {
+                                                                                        "key": "defaultText"
+                                                                                    }
+                                                                                ],
+                                                                                "dynamicTriggerPathList": [
+                                                                                    {
+                                                                                        "key": "onSubmit"
+                                                                                    }
+                                                                                ],
                                                                                 "placeholderText": "",
                                                                                 "tooltip": "Set the context of what kind of product/event/research is the survey for.",
-                                                                                "labelTextColor": "#495894"
+                                                                                "labelTextColor": "#495894",
+                                                                                "onSubmit": "{{saveCredentials.run()}}"
                                                                             },
                                                                             {
                                                                                 "isVisible": true,
@@ -396,11 +434,11 @@
                                                                                 "labelWidth": 5,
                                                                                 "widgetName": "goal_input",
                                                                                 "version": 2,
-                                                                                "defaultText": "To understand the use cases for customer experience and their priorities.",
+                                                                                "defaultText": "{{getCredentials.data.goal ? getCredentials.data.goal  : \"To understand the use cases for customer experience and their priorities.\"}}",
                                                                                 "iconAlign": "left",
                                                                                 "autoFocus": false,
                                                                                 "labelStyle": "",
-                                                                                "resetOnSubmit": true,
+                                                                                "resetOnSubmit": false,
                                                                                 "isRequired": true,
                                                                                 "isDisabled": false,
                                                                                 "animateLoading": true,
@@ -422,11 +460,20 @@
                                                                                 "topRow": 24,
                                                                                 "bottomRow": 28,
                                                                                 "parentId": "vi64r4djqc",
-                                                                                "dynamicBindingPathList": [],
-                                                                                "dynamicTriggerPathList": [],
+                                                                                "dynamicBindingPathList": [
+                                                                                    {
+                                                                                        "key": "defaultText"
+                                                                                    }
+                                                                                ],
+                                                                                "dynamicTriggerPathList": [
+                                                                                    {
+                                                                                        "key": "onSubmit"
+                                                                                    }
+                                                                                ],
                                                                                 "placeholderText": "",
                                                                                 "tooltip": "What is the goal of the survey? E.g. to measure engagement, get feedback or more.",
-                                                                                "labelTextColor": "#495894"
+                                                                                "labelTextColor": "#495894",
+                                                                                "onSubmit": "{{saveCredentials.run()}}"
                                                                             },
                                                                             {
                                                                                 "isVisible": true,
@@ -436,16 +483,16 @@
                                                                                 "labelWidth": 5,
                                                                                 "widgetName": "numper_input",
                                                                                 "version": 2,
-                                                                                "defaultText": "3",
+                                                                                "defaultText": "{{getCredentials.data.number ? getCredentials.data.number  : \"3\" }}",
                                                                                 "iconAlign": "left",
                                                                                 "autoFocus": false,
                                                                                 "labelStyle": "",
-                                                                                "resetOnSubmit": true,
+                                                                                "resetOnSubmit": false,
                                                                                 "isRequired": true,
                                                                                 "isDisabled": false,
                                                                                 "animateLoading": true,
                                                                                 "classStyle": "",
-                                                                                "inputType": "NUMBER",
+                                                                                "inputType": "TEXT",
                                                                                 "buttonPosition": "right",
                                                                                 "type": "INPUT_WIDGET_V2",
                                                                                 "hideCard": false,
@@ -462,11 +509,25 @@
                                                                                 "topRow": 32,
                                                                                 "bottomRow": 36,
                                                                                 "parentId": "vi64r4djqc",
-                                                                                "dynamicBindingPathList": [],
-                                                                                "dynamicTriggerPathList": [],
+                                                                                "dynamicBindingPathList": [
+                                                                                    {
+                                                                                        "key": "defaultText"
+                                                                                    }
+                                                                                ],
+                                                                                "dynamicTriggerPathList": [
+                                                                                    {
+                                                                                        "key": "onSubmit"
+                                                                                    },
+                                                                                    {
+                                                                                        "key": "onTextChanged"
+                                                                                    }
+                                                                                ],
                                                                                 "placeholderText": "",
                                                                                 "tooltip": "How many survey questions would you like the AI to generate?",
-                                                                                "labelTextColor": "#495894"
+                                                                                "labelTextColor": "#495894",
+                                                                                "regex": "^\\d+$",
+                                                                                "onSubmit": "{{saveCredentials.run()}}",
+                                                                                "onTextChanged": "{{saveCredentials.run()}}"
                                                                             }
                                                                         ],
                                                                         "minHeight": 400,
@@ -502,24 +563,97 @@
                                                                 "parentId": "zwefqfp59j"
                                                             },
                                                             {
-                                                                "isVisible": false,
-                                                                "text": "",
-                                                                "fontSize": "PARAGRAPH",
-                                                                "fontStyle": "",
-                                                                "textAlign": "LEFT",
-                                                                "textColor": "#4C4165",
-                                                                "truncateButtonColor": "#FFC13D",
-                                                                "widgetName": "answers_text",
-                                                                "shouldTruncate": false,
-                                                                "overflow": "NONE",
-                                                                "version": 1,
+                                                                "isVisible": true,
+                                                                "backgroundColor": "#FFFFFF",
+                                                                "widgetName": "Container4",
+                                                                "containerStyle": "card",
+                                                                "borderColor": "transparent",
+                                                                "borderWidth": "0",
+                                                                "borderRadius": "0",
+                                                                "boxShadow": "NONE",
                                                                 "animateLoading": true,
-                                                                "type": "TEXT_WIDGET",
+                                                                "children": [
+                                                                    {
+                                                                        "isVisible": true,
+                                                                        "widgetName": "Canvas5",
+                                                                        "version": 1,
+                                                                        "detachFromLayout": true,
+                                                                        "type": "CANVAS_WIDGET",
+                                                                        "hideCard": true,
+                                                                        "displayName": "Canvas",
+                                                                        "key": "nbtthmlsf0",
+                                                                        "containerStyle": "none",
+                                                                        "canExtend": false,
+                                                                        "children": [
+                                                                            {
+                                                                                "isVisible": "{{generate.data ? true : false}}",
+                                                                                "text": "{{generate.data}}",
+                                                                                "fontSize": "PARAGRAPH",
+                                                                                "fontStyle": "BOLD",
+                                                                                "textAlign": "LEFT",
+                                                                                "textColor": "#4C4165",
+                                                                                "truncateButtonColor": "#FFC13D",
+                                                                                "widgetName": "answers_text",
+                                                                                "shouldTruncate": false,
+                                                                                "overflow": "SCROLL",
+                                                                                "version": 1,
+                                                                                "animateLoading": true,
+                                                                                "type": "TEXT_WIDGET",
+                                                                                "hideCard": false,
+                                                                                "displayName": "Text",
+                                                                                "key": "phs0z4o7qt",
+                                                                                "iconSVG": "/static/media/icon.97c59b52.svg",
+                                                                                "widgetId": "zj35bdpssh",
+                                                                                "renderMode": "CANVAS",
+                                                                                "isLoading": false,
+                                                                                "parentColumnSpace": 7.8720703125,
+                                                                                "parentRowSpace": 10,
+                                                                                "leftColumn": 0,
+                                                                                "rightColumn": 64,
+                                                                                "topRow": 0,
+                                                                                "bottomRow": 25,
+                                                                                "parentId": "vvnc4vx4he",
+                                                                                "dynamicBindingPathList": [
+                                                                                    {
+                                                                                        "key": "text"
+                                                                                    },
+                                                                                    {
+                                                                                        "key": "isVisible"
+                                                                                    }
+                                                                                ],
+                                                                                "dynamicTriggerPathList": [],
+                                                                                "borderColor": "#F8C1D2",
+                                                                                "borderWidth": "2",
+                                                                                "classStyle": "answers",
+                                                                                "dynamicPropertyPathList": [
+                                                                                    {
+                                                                                        "key": "isVisible"
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ],
+                                                                        "minHeight": 400,
+                                                                        "widgetId": "vvnc4vx4he",
+                                                                        "renderMode": "CANVAS",
+                                                                        "isLoading": false,
+                                                                        "parentColumnSpace": 1,
+                                                                        "parentRowSpace": 1,
+                                                                        "leftColumn": 0,
+                                                                        "rightColumn": 188.9296875,
+                                                                        "topRow": 0,
+                                                                        "bottomRow": 390,
+                                                                        "parentId": "vffa4c4h2j"
+                                                                    }
+                                                                ],
+                                                                "version": 1,
+                                                                "classStyle": "text_container",
+                                                                "type": "CONTAINER_WIDGET",
                                                                 "hideCard": false,
-                                                                "displayName": "Text",
-                                                                "key": "phs0z4o7qt",
-                                                                "iconSVG": "/static/media/icon.97c59b52.svg",
-                                                                "widgetId": "zj35bdpssh",
+                                                                "displayName": "Container",
+                                                                "key": "1grmvamjdp",
+                                                                "iconSVG": "/static/media/icon.1977dca3.svg",
+                                                                "isCanvas": true,
+                                                                "widgetId": "vffa4c4h2j",
                                                                 "renderMode": "CANVAS",
                                                                 "isLoading": false,
                                                                 "parentColumnSpace": 7.8720703125,
@@ -531,8 +665,7 @@
                                                                 "parentId": "zwefqfp59j",
                                                                 "dynamicBindingPathList": [],
                                                                 "dynamicTriggerPathList": [],
-                                                                "borderColor": "#F8C1D2",
-                                                                "borderWidth": "2"
+                                                                "shouldScrollContents": true
                                                             }
                                                         ],
                                                         "minHeight": 400,
@@ -566,7 +699,8 @@
                                                 "parentId": "qzpmrjky13",
                                                 "shouldScrollContents": true,
                                                 "dynamicBindingPathList": [],
-                                                "dynamicTriggerPathList": []
+                                                "dynamicTriggerPathList": [],
+                                                "classStyle": "survey_form"
                                             }
                                         ],
                                         "minHeight": 400,
@@ -583,7 +717,7 @@
                                     }
                                 ],
                                 "version": 1,
-                                "classStyle": "",
+                                "classStyle": "main_container",
                                 "type": "CONTAINER_WIDGET",
                                 "hideCard": false,
                                 "displayName": "Container",
@@ -599,7 +733,10 @@
                                 "rightColumn": 64,
                                 "topRow": 0,
                                 "bottomRow": 83,
-                                "parentId": "0"
+                                "parentId": "0",
+                                "dynamicBindingPathList": [],
+                                "dynamicTriggerPathList": [],
+                                "shouldScrollContents": false
                             }
                         ],
                         "dynamicTriggerPathList": []
@@ -619,10 +756,12 @@
                         "Container3",
                         "Canvas4",
                         "key_input",
-                        "Select1",
-                        "Input2",
+                        "model_select",
+                        "context_input",
                         "goal_input",
                         "numper_input",
+                        "Container4",
+                        "Canvas5",
                         "answers_text"
                     ],
                     "deleted": false,
