@@ -60,7 +60,7 @@
             "confirmBeforeExecute": false
         },
         "createdAt": "2024-01-17T12:46:48.592Z",
-        "updatedAt": "2024-01-17T14:06:15.185Z",
+        "updatedAt": "2024-01-18T10:38:05.266Z",
         "deleted": false,
         "policies": [
             {
@@ -101,7 +101,7 @@
             "executeOnLoad": true,
             "pageId": "survey generator",
             "actionConfiguration": {
-                "timeoutInMillisecond": 10000,
+                "timeoutInMillisecond": "500",
                 "encodeParamsToggle": true,
                 "httpMethod": "GET",
                 "headers": [],
@@ -126,7 +126,7 @@
             "confirmBeforeExecute": false
         },
         "createdAt": "2024-01-17T12:51:16.376Z",
-        "updatedAt": "2024-01-17T14:06:43.203Z",
+        "updatedAt": "2024-01-18T10:47:43.986Z",
         "deleted": false,
         "policies": [
             {
@@ -167,7 +167,7 @@
             "executeOnLoad": false,
             "pageId": "survey generator",
             "actionConfiguration": {
-                "timeoutInMillisecond": 10000,
+                "timeoutInMillisecond": "20000",
                 "encodeParamsToggle": true,
                 "httpMethod": "POST",
                 "headers": [
@@ -202,7 +202,7 @@
             "confirmBeforeExecute": false
         },
         "createdAt": "2024-01-17T13:31:53.665Z",
-        "updatedAt": "2024-01-17T13:32:20.584Z",
+        "updatedAt": "2024-01-18T10:42:45.321Z",
         "deleted": false,
         "policies": [
             {

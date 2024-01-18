@@ -147,7 +147,7 @@
                                                         "leftColumn": 0,
                                                         "rightColumn": 369.75,
                                                         "topRow": 0,
-                                                        "bottomRow": 590,
+                                                        "bottomRow": 580,
                                                         "parentId": "7e3zvpoc4s"
                                                     }
                                                 ],
@@ -226,8 +226,12 @@
                                                                 "iconAlign": "left",
                                                                 "placement": "CENTER",
                                                                 "classStyle": "generate_btn",
-                                                                "onClick": "{{generate.run(() => getCredentials.run(), () => {})}}",
-                                                                "dynamicPropertyPathList": []
+                                                                "onClick": "{{saveCredentials.run();getCredentials.run();generate.run()}}",
+                                                                "dynamicPropertyPathList": [
+                                                                    {
+                                                                        "key": "onClick"
+                                                                    }
+                                                                ]
                                                             },
                                                             {
                                                                 "isVisible": true,
@@ -291,7 +295,7 @@
                                                                                 "labelWidth": 5,
                                                                                 "widgetName": "key_input",
                                                                                 "version": 2,
-                                                                                "defaultText": "{{getCredentials.data.openAIKey ? getCredentials.data.openAIKey : '' }}",
+                                                                                "defaultText": "{{getCredentials.data.openAIKey}}",
                                                                                 "iconAlign": "left",
                                                                                 "autoFocus": false,
                                                                                 "labelStyle": "",
@@ -330,7 +334,7 @@
                                                                                 "placeholderText": "sk-XXXXXXXX63Az1EeBM3rlT3BlbkFJQ4IOqyXXdhTgjqN2YbXX",
                                                                                 "tooltip": "Provide your API key",
                                                                                 "labelTextColor": "#495894",
-                                                                                "onSubmit": "{{saveCredentials.run()}}",
+                                                                                "onSubmit": "",
                                                                                 "dynamicPropertyPathList": []
                                                                             },
                                                                             {
@@ -375,7 +379,7 @@
                                                                                     }
                                                                                 ],
                                                                                 "labelTextColor": "#495894",
-                                                                                "onOptionChange": "{{saveCredentials.run()}}"
+                                                                                "onOptionChange": ""
                                                                             },
                                                                             {
                                                                                 "isVisible": true,
@@ -385,7 +389,7 @@
                                                                                 "labelWidth": 5,
                                                                                 "widgetName": "context_input",
                                                                                 "version": 2,
-                                                                                "defaultText": "{{getCredentials.data.context ? getCredentials.data.context  : 'To survey customer experience leaders on what use cases they would like to enhance with AI.'}}",
+                                                                                "defaultText": "{{getCredentials.data.context}}",
                                                                                 "iconAlign": "left",
                                                                                 "autoFocus": false,
                                                                                 "labelStyle": "",
@@ -421,10 +425,10 @@
                                                                                         "key": "onSubmit"
                                                                                     }
                                                                                 ],
-                                                                                "placeholderText": "",
+                                                                                "placeholderText": "To survey customer experience leaders on what use cases they would like to enhance with AI.",
                                                                                 "tooltip": "Set the context of what kind of product/event/research is the survey for.",
                                                                                 "labelTextColor": "#495894",
-                                                                                "onSubmit": "{{saveCredentials.run()}}"
+                                                                                "onSubmit": ""
                                                                             },
                                                                             {
                                                                                 "isVisible": true,
@@ -434,7 +438,7 @@
                                                                                 "labelWidth": 5,
                                                                                 "widgetName": "goal_input",
                                                                                 "version": 2,
-                                                                                "defaultText": "{{getCredentials.data.goal ? getCredentials.data.goal  : \"To understand the use cases for customer experience and their priorities.\"}}",
+                                                                                "defaultText": "{{getCredentials.data.goal }}",
                                                                                 "iconAlign": "left",
                                                                                 "autoFocus": false,
                                                                                 "labelStyle": "",
@@ -470,10 +474,10 @@
                                                                                         "key": "onSubmit"
                                                                                     }
                                                                                 ],
-                                                                                "placeholderText": "",
+                                                                                "placeholderText": "To understand the use cases for customer experience and their priorities.",
                                                                                 "tooltip": "What is the goal of the survey? E.g. to measure engagement, get feedback or more.",
                                                                                 "labelTextColor": "#495894",
-                                                                                "onSubmit": "{{saveCredentials.run()}}"
+                                                                                "onSubmit": ""
                                                                             },
                                                                             {
                                                                                 "isVisible": true,
@@ -483,7 +487,7 @@
                                                                                 "labelWidth": 5,
                                                                                 "widgetName": "numper_input",
                                                                                 "version": 2,
-                                                                                "defaultText": "{{getCredentials.data.number ? getCredentials.data.number  : \"3\" }}",
+                                                                                "defaultText": "{{getCredentials.data.number}}",
                                                                                 "iconAlign": "left",
                                                                                 "autoFocus": false,
                                                                                 "labelStyle": "",
@@ -522,12 +526,12 @@
                                                                                         "key": "onTextChanged"
                                                                                     }
                                                                                 ],
-                                                                                "placeholderText": "",
+                                                                                "placeholderText": "3",
                                                                                 "tooltip": "How many survey questions would you like the AI to generate?",
                                                                                 "labelTextColor": "#495894",
                                                                                 "regex": "^\\d+$",
-                                                                                "onSubmit": "{{saveCredentials.run()}}",
-                                                                                "onTextChanged": "{{saveCredentials.run()}}"
+                                                                                "onSubmit": "",
+                                                                                "onTextChanged": ""
                                                                             }
                                                                         ],
                                                                         "minHeight": 400,
@@ -563,109 +567,50 @@
                                                                 "parentId": "zwefqfp59j"
                                                             },
                                                             {
-                                                                "isVisible": true,
-                                                                "backgroundColor": "#FFFFFF",
-                                                                "widgetName": "Container4",
-                                                                "containerStyle": "card",
-                                                                "borderColor": "transparent",
-                                                                "borderWidth": "0",
-                                                                "borderRadius": "0",
-                                                                "boxShadow": "NONE",
-                                                                "animateLoading": true,
-                                                                "children": [
-                                                                    {
-                                                                        "isVisible": true,
-                                                                        "widgetName": "Canvas5",
-                                                                        "version": 1,
-                                                                        "detachFromLayout": true,
-                                                                        "type": "CANVAS_WIDGET",
-                                                                        "hideCard": true,
-                                                                        "displayName": "Canvas",
-                                                                        "key": "nbtthmlsf0",
-                                                                        "containerStyle": "none",
-                                                                        "canExtend": false,
-                                                                        "children": [
-                                                                            {
-                                                                                "isVisible": "{{generate.data ? true : false}}",
-                                                                                "text": "{{generate.data}}",
-                                                                                "fontSize": "PARAGRAPH",
-                                                                                "fontStyle": "BOLD",
-                                                                                "textAlign": "LEFT",
-                                                                                "textColor": "#4C4165",
-                                                                                "truncateButtonColor": "#FFC13D",
-                                                                                "widgetName": "answers_text",
-                                                                                "shouldTruncate": false,
-                                                                                "overflow": "SCROLL",
-                                                                                "version": 1,
-                                                                                "animateLoading": true,
-                                                                                "type": "TEXT_WIDGET",
-                                                                                "hideCard": false,
-                                                                                "displayName": "Text",
-                                                                                "key": "phs0z4o7qt",
-                                                                                "iconSVG": "/static/media/icon.97c59b52.svg",
-                                                                                "widgetId": "zj35bdpssh",
-                                                                                "renderMode": "CANVAS",
-                                                                                "isLoading": false,
-                                                                                "parentColumnSpace": 7.8720703125,
-                                                                                "parentRowSpace": 10,
-                                                                                "leftColumn": 0,
-                                                                                "rightColumn": 64,
-                                                                                "topRow": 0,
-                                                                                "bottomRow": 25,
-                                                                                "parentId": "vvnc4vx4he",
-                                                                                "dynamicBindingPathList": [
-                                                                                    {
-                                                                                        "key": "text"
-                                                                                    },
-                                                                                    {
-                                                                                        "key": "isVisible"
-                                                                                    }
-                                                                                ],
-                                                                                "dynamicTriggerPathList": [],
-                                                                                "borderColor": "#F8C1D2",
-                                                                                "borderWidth": "2",
-                                                                                "classStyle": "answers",
-                                                                                "dynamicPropertyPathList": [
-                                                                                    {
-                                                                                        "key": "isVisible"
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        ],
-                                                                        "minHeight": 400,
-                                                                        "widgetId": "vvnc4vx4he",
-                                                                        "renderMode": "CANVAS",
-                                                                        "isLoading": false,
-                                                                        "parentColumnSpace": 1,
-                                                                        "parentRowSpace": 1,
-                                                                        "leftColumn": 0,
-                                                                        "rightColumn": 188.9296875,
-                                                                        "topRow": 0,
-                                                                        "bottomRow": 390,
-                                                                        "parentId": "vffa4c4h2j"
-                                                                    }
-                                                                ],
+                                                                "isVisible": "{{generate.data ? true : false}}",
+                                                                "text": "{{generate.data}}",
+                                                                "fontSize": "PARAGRAPH",
+                                                                "fontStyle": "BOLD",
+                                                                "textAlign": "LEFT",
+                                                                "textColor": "#4C4165",
+                                                                "truncateButtonColor": "#FFC13D",
+                                                                "widgetName": "answers_text",
+                                                                "shouldTruncate": false,
+                                                                "overflow": "SCROLL",
                                                                 "version": 1,
-                                                                "classStyle": "text_container",
-                                                                "type": "CONTAINER_WIDGET",
+                                                                "animateLoading": true,
+                                                                "type": "TEXT_WIDGET",
                                                                 "hideCard": false,
-                                                                "displayName": "Container",
-                                                                "key": "1grmvamjdp",
-                                                                "iconSVG": "/static/media/icon.1977dca3.svg",
-                                                                "isCanvas": true,
-                                                                "widgetId": "vffa4c4h2j",
+                                                                "displayName": "Text",
+                                                                "key": "phs0z4o7qt",
+                                                                "iconSVG": "/static/media/icon.97c59b52.svg",
+                                                                "widgetId": "zj35bdpssh",
                                                                 "renderMode": "CANVAS",
                                                                 "isLoading": false,
                                                                 "parentColumnSpace": 7.8720703125,
                                                                 "parentRowSpace": 10,
                                                                 "leftColumn": 0,
                                                                 "rightColumn": 63,
-                                                                "topRow": 50,
-                                                                "bottomRow": 77,
+                                                                "topRow": 51,
+                                                                "bottomRow": 73,
                                                                 "parentId": "zwefqfp59j",
-                                                                "dynamicBindingPathList": [],
+                                                                "dynamicBindingPathList": [
+                                                                    {
+                                                                        "key": "text"
+                                                                    },
+                                                                    {
+                                                                        "key": "isVisible"
+                                                                    }
+                                                                ],
                                                                 "dynamicTriggerPathList": [],
-                                                                "shouldScrollContents": true
+                                                                "borderColor": "#F8C1D2",
+                                                                "borderWidth": "2",
+                                                                "classStyle": "answers",
+                                                                "dynamicPropertyPathList": [
+                                                                    {
+                                                                        "key": "isVisible"
+                                                                    }
+                                                                ]
                                                             }
                                                         ],
                                                         "minHeight": 400,
@@ -677,7 +622,7 @@
                                                         "leftColumn": 0,
                                                         "rightColumn": 369.75,
                                                         "topRow": 0,
-                                                        "bottomRow": 790,
+                                                        "bottomRow": 750,
                                                         "parentId": "vqzmpf7qx6"
                                                     }
                                                 ],
@@ -736,7 +681,7 @@
                                 "parentId": "0",
                                 "dynamicBindingPathList": [],
                                 "dynamicTriggerPathList": [],
-                                "shouldScrollContents": false
+                                "shouldScrollContents": true
                             }
                         ],
                         "dynamicTriggerPathList": []
@@ -760,8 +705,6 @@
                         "context_input",
                         "goal_input",
                         "numper_input",
-                        "Container4",
-                        "Canvas5",
                         "answers_text"
                     ],
                     "deleted": false,
