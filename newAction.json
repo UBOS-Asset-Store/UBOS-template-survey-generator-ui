@@ -60,7 +60,7 @@
             "confirmBeforeExecute": false
         },
         "createdAt": "2024-01-17T12:46:48.592Z",
-        "updatedAt": "2024-01-18T10:38:05.266Z",
+        "updatedAt": "2024-01-18T11:50:36.301Z",
         "deleted": false,
         "policies": [
             {
@@ -98,7 +98,7 @@
                 "pluginId": "API",
                 "messages": []
             },
-            "executeOnLoad": true,
+            "executeOnLoad": false,
             "pageId": "survey generator",
             "actionConfiguration": {
                 "timeoutInMillisecond": "500",
@@ -126,7 +126,7 @@
             "confirmBeforeExecute": false
         },
         "createdAt": "2024-01-17T12:51:16.376Z",
-        "updatedAt": "2024-01-18T10:47:43.986Z",
+        "updatedAt": "2024-01-18T12:15:23.937Z",
         "deleted": false,
         "policies": [
             {

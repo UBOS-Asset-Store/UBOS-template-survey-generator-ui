@@ -709,19 +709,7 @@
                     ],
                     "deleted": false,
                     "layoutOnLoadActions": [
-                        [
-                            {
-                                "_id": "65a7cd44fb64dd25c5418356",
-                                "id": "65a7cd44fb64dd25c5418356",
-                                "confirmBeforeExecute": false,
-                                "name": "getCredentials",
-                                "pluginType": "API",
-                                "jsonPathKeys": [
-                                    "main.env.NODEREDURL"
-                                ],
-                                "timeoutInMillisecond": 10000
-                            }
-                        ]
+                        []
                     ],
                     "layoutOnCloseActions": [
                         []
